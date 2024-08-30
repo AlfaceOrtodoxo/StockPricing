@@ -17,7 +17,7 @@ wallet = workbook['wallet']
 def main():
     while True:
         format()
-        time.sleep(3)
+        time.sleep(1)
         clearTerminal()
         if keyboard.is_pressed('esc'):
             break
