@@ -17,8 +17,11 @@ carteira = pasta['wallet']
 def main():
     while True:
         hour = dt.datetime.now()
+        print('=====================')
         print(hour.strftime("%d-%m-%Y - %H:%M:%S"))
+        print('=====================')
         cotacao()
+        print('=====================')
         time.sleep(1)
         limpar_terminal()
         if keyboard.is_pressed('esc'):
@@ -32,7 +35,7 @@ def cotacao():
         if ticker is not None:
             try:
                 price = yf.Ticker(ticker).history(period="1d")['Close'].iloc[0]
-                print('{}: R$ {:.2f}'.format(ticker, price))
+                print('{}:     R${:.2f}'.format(ticker, price))
             except Exception as e:
                 print(f"Erro ao obter o preço para {ticker}: {e}")
 
