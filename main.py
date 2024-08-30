@@ -3,6 +3,7 @@ import openpyxl as opxl
 import time
 import keyboard
 import os
+import datetime as dt
 
 dir_script = os.path.dirname(os.path.abspath(__file__))
 
@@ -11,10 +12,14 @@ os.chdir(dir_script)
 pasta = opxl.load_workbook("wallet.xlsx")
 carteira = pasta['wallet']
 
+
+
 def main():
     while True:
+        hour = dt.datetime.now()
+        print(hour.strftime("%d-%m-%Y - %H:%M:%S"))
         cotacao()
-        time.sleep(3)
+        time.sleep(1)
         limpar_terminal()
         if keyboard.is_pressed('esc'):
             break
@@ -24,7 +29,7 @@ def main():
 def cotacao():
     for cell in carteira['A']:
         ticker = cell.value
-        if ticker is not None:  # Verifica se o ticker não é None
+        if ticker is not None:
             try:
                 price = yf.Ticker(ticker).history(period="1d")['Close'].iloc[0]
                 print('{}: R$ {:.2f}'.format(ticker, price))
