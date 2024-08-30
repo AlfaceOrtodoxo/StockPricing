@@ -33,9 +33,12 @@ def cotacao():
     for cell in carteira['A']:
         ticker = cell.value
         if ticker is not None:
-            try:
+            try:  
                 price = yf.Ticker(ticker).history(period="1d")['Close'].iloc[0]
-                print('{}:     R${:.2f}'.format(ticker, price))
+                if ".SA" in ticker:
+                    print('{}:       R$ {:.2f}'.format(ticker[0:5], price))
+                else:
+                    print('{}:      US$ {:.2f}'.format(ticker, price))
             except Exception as e:
                 print(f"Erro ao obter o preço para {ticker}: {e}")
 
