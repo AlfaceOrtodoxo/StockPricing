@@ -26,7 +26,7 @@ pip install yfinance openpyxl keyboard
 1. Run the script in your terminal or development environment:
 
 ```bash
-python script_name.py
+python main.py
 ```
 
 2. The script will display the stock prices in real-time. To stop the monitoring, press the `Esc` key.
