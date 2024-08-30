@@ -1,7 +1,3 @@
-Certainly! Here's the README file translated into English:
-
----
-
 # Stock Price Monitor
 
 This Python script monitors and displays the stock prices listed in an Excel spreadsheet (`wallet.xlsx`). The prices are updated in real-time and displayed in the terminal. The script will keep running until the `Esc` key is pressed.
